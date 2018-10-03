@@ -2,4 +2,4 @@
   - create directory with docker-compose.yml file
   - go to directory using cmd
   - type...
-  - docker up -d
+  - docker-compose up -d
