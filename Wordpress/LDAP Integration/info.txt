@@ -1,0 +1,41 @@
+**-Set up LDAP on Wordpress 
+
+
+**-add miniOrange LDAP/Active Directory plugin
+
+
+**--so it need to enable php-ldap 
+	-- I have login to bash using 
+		 docker exec -it wordpress_wordpress_1 bash
+	-- then i execute line by line as follows 
+		-apt-get update 
+		-apt-get install -y libldap2-dev 
+		-rm -rf /var/lib/apt/lists/* 
+		-docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ 
+		-docker-php-ext-install ldap 
+		-apt-get purge -y --auto-remove libldap2-dev
+
+**--after restarted server and worked perfectly 
+
+
+-------------------------------------------
+
+miniorange account
+u - tharushapro@gmail.com
+p - Tharusha@LDAP123
+
+-----------------------------------------
+**-- Use these info to configure LDAP
+
+LDAP Configuration
+ldap://cmvdc01.virtusa.com:3268
+tdilshan@virtusa.com
+mypassword
+OU=Colombo,OU=Virtusans,OU=ATC Colombo,DC=Virtusa,DC=com
+sAMAccountName
+Editor 
+Administrator
+
+
+
+
