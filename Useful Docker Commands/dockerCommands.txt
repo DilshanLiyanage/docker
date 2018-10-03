@@ -1,0 +1,21 @@
+**-To Look into containers
+  - docker ps
+  - docker ps -a
+  
+**- To Stop running container
+  - docker stop {name/id}
+  
+**- To Start the container
+  - docker start {name/id}
+  
+**- To remove container
+  - docker rm {name/id}  
+
+**- To look into images
+  - docker images
+  - docker images -a
+
+**- To remove image
+  - docker rmi {id}
+  - docker rmi -f {id}
+
