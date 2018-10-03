@@ -1,0 +1,16 @@
+**navigrate to web project directorty of the jar file
+	- insert new "Dockerfile" named file to that directory (without any extension) 
+		-- with this content 
+			FROM java:8
+			EXPOSE 7788:7788
+			ADD /target/test_jar.jar test_jar.jar
+			ENTRYPOINT ["java","-jar","test_jar.jar"]
+
+**Run below line on cli (test_jar is the name of the image file)
+	- docker build -t test_jar .
+	- Above code should run on exact directory 
+	
+**After that it will pull java8 image first time if not exit
+	
+**Finally we can run it 
+	- docker run -p 7788:7788 test_jar
