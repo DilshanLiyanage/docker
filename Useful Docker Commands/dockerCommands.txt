@@ -18,4 +18,31 @@
 **- To remove image
   - docker rmi {id}
   - docker rmi -f {id}
+  
+  
+-----------------------------------------------------
+To build your own docker image and push it to docker hub
 
+
+**- To build docker image 
+  - need to create "Dockerfile" with this name without extension on project directory 
+  - then need to run following docker command 
+    - docker build -t {appName} .
+  - To run that app on local machine 
+    - docker run -p 4000:80 {appName}
+  - To run that app on background
+    - docker run -d -p 4000:80 {appName}
+  
+**- To publish the image to docker hub (docker registry)
+  - need to login docker hub account with credentials
+    - docker login
+  - need to map local image with repository on docker registry using tag
+    - docker tag {imageName} {username}/{repository}:{tag or version number}
+  - then can publish that image using push
+    - docker push {username}/{repository}:{tag}
+  - so then anyone can pull that image on any where to run 
+    - docker pull {username}/{repository}:{tag}
+    or 
+    - docker run -p 4000:80 {username}/{repository}:{tag}
+      * then it automatically pull image and run it on any machine in port 4000
+    
