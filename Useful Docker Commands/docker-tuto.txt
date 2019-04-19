@@ -1,0 +1,127 @@
+Docker
+-----------
+Docker is containerization software which is most valuable for software developers, operators and enterprises. Because it is very easy to 
+build and run app on different deployment environments.
+
+Docker Image is a class.
+Docker Container is the object or instance of a particular Docker Image
+
+
+
+list all working and exited images
+----------------------------------
+docker images -a  
+
+
+
+
+delete existing image (--force flag for forcing running image)
+----------------------------------
+docker rmi --force <imageId>
+
+
+
+list all working and exited containers
+--------------------------------------
+docker ps -a 
+
+
+
+
+delete existing container
+----------------------------------
+docker rm --force <containerId>
+
+
+
+
+To run container first container 
+----------------------------------
+docker run hello-world
+
+**above code will make container from a image which is located on locally or if not on docker hub
+but it will create random name for that container 
+
+
+
+
+To give our own name for the container
+-----------------------------------------
+docker run --name <your-name> <image-name>
+
+
+
+
+To make ubuntu container and go directly to inside of the container 
+-------------------------------------------------------------------
+docker run -it --name my-linux-container ubuntu bash
+
+**now you are in inside of the buntu container and you can execute all the linux commands on it 
+
+
+
+
+To remove all exited docker containers from locally
+------------------------------------------------------
+docker rm $(docker ps -a -f status=exited -q)
+
+
+
+
+To build our own docker image 
+-----------------------------------
+**first navigate to a folder 
+**make file called "Dockerfile" without any extension
+---------------------------
+FROM ubuntu
+CMD echo "Welcome Tharusha"
+--------------------------
+
+**then run this command on directory 
+
+docker build -t <image-name> .
+
+**then you can run container from that image 
+
+
+
+
+
+
+
+Docker-compose
+----------------------------------------------
+Up to now we build and run only one service but if someone needs to run multiple micro services at one time
+we have option called docker-compose which can build and run multiple containers at onece
+
+->install docker-compose
+	- sudo apt-get install docker-compose
+
+->create docker-compose.yml file on directory contains as below
+	# Docker Version: 1.13.0
+	# Docker Compose Version: 1.10.1
+
+	version: "3"
+
+	services:
+    		web1:
+        		image: dockercloud/hello-world
+        		container_name: web1
+        		ports:
+           			- "81:80"
+
+    		web2:
+        		image: dockercloud/hello-world
+        		container_name: web2
+        		ports:
+            			- "82:80"
+
+->Go to that directory, open terminal and execute this command
+	- docker-compose up
+
+->go to localhost:81 and localhost:82 and see
+**above two containers are run as web servers and all two servers have up their localhost:80 as internally 
+  and exported as localhost:81 and localhost:82 in host machine
+
+
+
