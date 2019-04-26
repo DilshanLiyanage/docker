@@ -48,6 +48,7 @@ but it will create random name for that container
 To give our own name for the container
 -----------------------------------------
 docker run --name <your-name> <image-name>
+**if need to run container background we can use -d flag
 
 
 
@@ -89,8 +90,12 @@ docker exec -it tharusha-ubuntu-lamp bash
 
 To make a image from container 
 ----------------------------------
-docker commit <container-id> <new-image-name>
-
+1 option 
+	- docker commit <container-id> <new-image-name>
+2 option 
+	- docker commit <container-id>
+	**above command will make new image to docker but without name
+	- docker tag <newly-created-image-id> <new-name>
 
 
 

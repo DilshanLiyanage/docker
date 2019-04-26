@@ -1,0 +1,28 @@
+Nginx server on docker 
+---------------------------------------------
+Nginx server is a simple and powerful web server for linux based systems
+
+
+To make container of the nginx server
+----------------------------------------
+step 1
+	- docker pull nginx
+
+step 2
+	- docker create --name nginx-base -p 85:80 nginx
+	**nginx-base is the name for container and 85 port is exported to outside and internally run on 80 port 
+
+step 3
+	- docker start nginx-base
+
+step 4 
+	- docker cp index.html nginx-base:/usr/share/nginx/html/index.html
+	**index.html is newly created our own html file, 
+	**then need to change it with container's default index.html file
+
+step 5
+	- docker restart nginx-base
+
+
+**now our own default file is on localhost:85
+
