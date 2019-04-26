@@ -61,9 +61,59 @@ docker run -it --name my-linux-container ubuntu bash
 
 
 
+
 To remove all exited docker containers from locally
 ------------------------------------------------------
 docker rm $(docker ps -a -f status=exited -q)
+
+
+
+
+
+
+
+To start and stop existing container
+------------------------------------------
+docker start <container-name>
+docker stop <container-name>
+
+
+
+
+To execute any command on running container
+-----------------------------------------------
+docker exec -it tharusha-ubuntu-lamp bash
+
+
+
+
+To make a image from container 
+----------------------------------
+docker commit <container-id> <new-image-name>
+
+
+
+
+To pull image from docker hub
+---------------------------------
+docker pull <username>/<image-name>
+
+
+
+
+
+To push that image to docker hub
+-----------------------------------------------
+**login
+docker login
+
+**tag a docker image
+docker tag <image-id> <username>/<new-image-name>
+
+**push image to docker hub
+docker push <username>/<new-image-name>
+
+
 
 
 
@@ -79,7 +129,7 @@ CMD echo "Welcome Tharusha"
 
 **then run this command on directory 
 
-docker build -t <image-name> .
+docker build -t <new-image-name> .
 
 **then you can run container from that image 
 
